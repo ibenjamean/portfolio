@@ -176,14 +176,18 @@ function computeCumulativeLengths(points) {
   return lengths;
 }
 
+function getThemeColor(varName) {
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+}
+
 function drawNode(point, filled, opacity) {
   ctx.beginPath();
   ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
-  ctx.strokeStyle = `aqua${Math.floor(0.45 * opacity * 255).toString(16).padStart(2, "0")}`;
+  ctx.strokeStyle = `rgba(0, 255, 255, ${0.45 * opacity})`; // aqua
   ctx.lineWidth = 1.5;
 
   if (filled) {
-    ctx.fillStyle = `#aqua${Math.floor(0.45 * opacity * 255).toString(16).padStart(2, "0")}`;
+    ctx.fillStyle = `rgba(0, 255, 255, ${0.45 * opacity})`;
     ctx.fill();
   } else {
     ctx.stroke();
@@ -280,9 +284,9 @@ function drawTrace(trace) {
   ctx.lineTo(head.x, head.y); // partial final segment, up to current progress
 
   // ctx.strokeStyle = `rgba(200, 155, 60, ${0.45 * trace.opacity})`;
-  ctx.strokeStyle = `#aqua${Math.floor(0.45 * trace.opacity * 255).toString(16).padStart(2, "0")}`;
+  ctx.strokeStyle = `rgba(0, 255, 255, ${0.45 * trace.opacity})`;
   ctx.lineWidth = 1.5;
-  ctx.shadowColor = "aqua";
+  ctx.shadowColor = getThemeColor("--c7");
   ctx.shadowBlur = 4 * trace.opacity;
   ctx.stroke();
   ctx.shadowBlur = 0;

@@ -23,11 +23,16 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+      <div class="toggles">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+      
     </div>
   </header>
 
@@ -65,10 +70,22 @@
           </div>
 
           <div class="hero-desc-row">
-            <p class="hero-description">... turning data into insights and business-rewarding value by building data-driven solutions using <bold style="color:  #000000;">Python</bold>, <bold style="color: #425751;">Visualizations</bold>, and <bold style="color: red;">Machine Learning</bold> to help teams make smarter decisions.</p>
+            <p class="hero-description">... turning data into insights and business-rewarding value by building data-driven solutions using Python, Visualizations, and Machine Learning to help teams make smarter decisions.</p>
             <a class="cta-button" href="#projects">View my work</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-light">
+      <div class="container section-inner">
+        <h2>About</h2>
+        <p>{{ about.bio }}</p>
+        <ul class="focus-list">
+          {% for item in about.focus %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
       </div>
     </section>
 
@@ -120,6 +137,10 @@
   </footer>
 
   <script src = "{{ url_for('static', filename = 'particle.js') }}"></script>
+
   <script src="{{ url_for('static', filename = 'typewriter.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='theme.js') }}"></script>
+
 </body>
 </html>
