@@ -1,8 +1,8 @@
 
 const sidebar = document.getElementById("sidebar");
-const toggleBtn = document.getElementById("sidebar-toggle");
+const sidebarBtn = document.getElementById("sidebar-toggle");
 
-toggleBtn.addEventListener("click", () => {
+sidebarBtn.addEventListener("click", () => {
   sidebar.classList.toggle("expanded");
 });
 

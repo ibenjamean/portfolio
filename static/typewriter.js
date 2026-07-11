@@ -1,98 +1,70 @@
-const lines = [
-  {
-    element: document.getElementById("line1-text"),
-    text: "Hello..! 👋🏽"
-  },
-  {
-    element: document.getElementById("line2-text"),
-    text: "I'm Benjamin Kadiri..."
-  },
-  {
-    element: document.getElementById("line3-text"),
-    text: " A Data Scientist & ML Engineer."
-  }
+
+const line1 = document.getElementById("line1-text");
+const line2 = document.getElementById("line2-text");
+const line3 = document.getElementById("line3-text");
+
+const greeting = "Hello..! 👋🏽";
+const name = "I'm Benjamin Kadiri...";
+const titles = [
+  "A Data Scientist & ML Engineer.",
+  "A Certified Economist.",
+  "A Certified Data Analyst.",
+  "A Security professional."
 ];
 
 const cursor = document.createElement("span");
 cursor.className = "cursor";
 
-let lineIndex = 0;
-let charIndex = 0;
-
-function placeCursor() {
-  const currentLine = lines[lineIndex];
-  currentLine.element.parentElement.appendChild(cursor);
+function typeText(element, text, speed, callback) {
+  let i = 0;
+  function tick() {
+    if (i < text.length) {
+      element.textContent += text[i];
+      i++;
+      setTimeout(tick, speed);
+    } else {
+      callback && callback();
+    }
+  }
+  tick();
 }
 
-function typeCurrentLine() {
-  const currentLine = lines[lineIndex];
-
-  if (charIndex < currentLine.text.length) {
-    currentLine.element.textContent += currentLine.text[charIndex];
-    charIndex += 1;
-    setTimeout(typeCurrentLine, 60);
-    return;
+function eraseText(element, speed, callback) {
+  function tick() {
+    if (element.textContent.length > 0) {
+      element.textContent = element.textContent.slice(0, -1);
+      setTimeout(tick, speed);
+    } else {
+      callback && callback();
+    }
   }
-
-  if (lineIndex < lines.length - 1) {
-    lineIndex += 1;
-    charIndex = 0;
-    placeCursor();
-    setTimeout(typeCurrentLine, 400);
-    return;
-  }
-
-  setTimeout(eraseCurrentLine, 1400);
+  tick();
 }
 
-function eraseCurrentLine() {
-  const currentLine = lines[lineIndex];
+let titleIndex = 0;
 
-  if (currentLine.element.textContent.length > 0) {
-    currentLine.element.textContent = currentLine.element.textContent.slice(0, -1);
-    setTimeout(eraseCurrentLine, 35);
-    return;
-  }
+function cycleTitles() {
+  const current = titles[titleIndex];
+  line3.parentElement.appendChild(cursor);
 
-  if (lineIndex > 0) {
-    lineIndex -= 1;
-    placeCursor();
-    setTimeout(eraseCurrentLine, 35);
-    return;
-  }
-
-  lineIndex = 0;
-  charIndex = 0;
-  lines.forEach((line) => {
-    line.element.textContent = "";
+  typeText(line3, current, 60, () => {
+    setTimeout(() => {
+      eraseText(line3, 35, () => {
+        titleIndex = (titleIndex + 1) % titles.length;
+        setTimeout(cycleTitles, 300);
+      });
+    }, 1400);
   });
-  placeCursor();
-  setTimeout(typeCurrentLine, 700);
 }
 
 function startSequence() {
-  placeCursor();
-  setTimeout(typeCurrentLine, 1200);
+  line1.parentElement.appendChild(cursor);
+  typeText(line1, greeting, 60, () => {
+    line2.parentElement.appendChild(cursor);
+    typeText(line2, name, 60, () => {
+      setTimeout(cycleTitles, 400);
+    });
+  });
 }
 
 startSequence();
-
-
-(function(){
-  // mobile nav toggle: open/close, close on link click or outside click
-  const toggle = document.getElementById('nav-toggle');
-  const header = document.getElementById('site-header');
-  const navLinks = document.querySelectorAll('.site-nav a');
-  if(toggle){
-    toggle.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      header.classList.toggle('open');
-    });
-  }
-  navLinks.forEach(a=> a.addEventListener('click', ()=> header.classList.remove('open')));
-  document.addEventListener('click', (e)=>{
-    if(header.classList.contains('open') && !header.contains(e.target)){
-      header.classList.remove('open');
-    }
-  });
-})();

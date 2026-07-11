@@ -10,21 +10,37 @@
 <body>
   <canvas id="page-canvas"></canvas>
     <aside class="sidebar glass-card" id="sidebar">
-      <div class="sidebar-logo">
-        <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+      <div class="navbar">
+        <div class="logo">
+          <div class="sidebar-logo">
+            <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+            <span class="label">Minima</span>
+          </div>
+
+          <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Expand navigation">
+            <span class="arrow">›</span>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="#about">
+            <span class="icon">👤</span>
+            <span class="label">About</span>
+          </a>
+          <a href="#projects">
+            <span class="icon">💼</span>
+            <span class="label">Projects</span>
+          </a>
+          <a href="#skills">
+            <span class="icon">🛠️</span>
+            <span class="label">Skills</span>
+          </a>
+          <a href="#contact">
+            <span class="icon">✉️</span>
+            <span class="label">Contact</span>
+          </a>
+        </nav>
       </div>
-
-      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Expand navigation">
-        <span class="arrow">›</span>
-      </button>
-
-      <nav class="sidebar-nav">
-        <a href="#home"><span class="icon">🏠</span><span class="label">Home</span></a>
-        <a href="#about"><span class="icon">👤</span><span class="label">About</span></a>
-        <a href="#projects"><span class="icon">💼</span><span class="label">Projects</span></a>
-        <a href="#skills"><span class="icon">🛠️</span><span class="label">Skills</span></a>
-        <a href="#contact"><span class="icon">✉️</span><span class="label">Contact</span></a>
-      </nav>
 
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </aside>
@@ -61,7 +77,9 @@
 
           <div class="hero-desc-row">
             <p class="hero-description glass-card reveal-right">I turn data into insights and business-rewarding value by building data-driven solutions using Python, Visualizations, and Machine Learning to help teams make smarter decisions.</p>
-            <a class="cta-button reveal-right" href="#projects">View my work</a>
+            <span class="reveal-right">
+              <a class="cta-button" href="#projects">View my work</a>
+            </span>
           </div>
         </div>
       </div>
