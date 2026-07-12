@@ -70,7 +70,7 @@ a {
   box-shadow: 2px 0 8px var(--c5);
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0 2rem;
+  padding: 20px 0 3.5rem;
   z-index: 20;
   overflow: hidden; /* hides labels until there's room to show them */
 }
@@ -541,6 +541,9 @@ a {
   padding: 6px 10px;
   border-radius: .8rem;
   border: .6px solid var(--c4);
+  background: rgba(255, 255, 255, 0.062);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(12px); /* Safari needs the vendor prefix */
 }
 
 .project-card p {
@@ -741,11 +744,11 @@ a {
     height: 1.25rem;
   }
 
-  .hero-description, .section p, .skill-list span, .footer, .resume, .email, .project-links a {
+  .hero-description, .section p, .skill-list span, .footer, .project-links a, .project-card h4, .toolkit-card li, .cta-button {
     font-size: 0.8rem;
   }
 
-  .resume, .email, .skill-list span, .project-links a {
+  .cta-button, .skill-list span, .project-links a {
     padding: 4px 13px;
   }
 
@@ -753,12 +756,8 @@ a {
     font-size: 1.4rem;
   }
 
-  .project-title {
+  .project-title, .toolkit-card h3 {
     font-size: 1rem;
-  }
-
-  .project-card h4 {
-    font-size: 0.8rem;
   }
 
   .project-block {
@@ -777,10 +776,6 @@ a {
 
   .skill-list span {
     border-radius: 8px;
-  }
-
-  .email {
-    padding: 4px 18px;
   }
 
   .footer {
