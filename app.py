@@ -95,7 +95,7 @@ def contact():
 
   msg = EmailMessage()
   msg["Subject"] = f"New portfolio inquiry from {name}"
-  msg["From"] = os.environ.get("email")
+  msg["From"] = print("Email: ", os.environ.get("email"))
   msg["To"] = os.environ.get("email")
   msg.set_content(f"""
     New contact form submission:
