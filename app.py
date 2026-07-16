@@ -158,8 +158,8 @@ def contact():
 
     try:
         # Added explicit 10-second timeout to stop the worker from hanging indefinitely
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as server:
-            server.starttls()
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as server:
+           # server.starttls()
             server.login(smtp_email, smtp_pass)
             server.send_message(msg)
         return render_template("delivered.html")
