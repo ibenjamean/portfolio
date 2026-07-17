@@ -68,6 +68,10 @@ def home():
 
   return render_template("index.html", about=about, projects=projects, skills=skills, certifications=certifications, reviews=reviews)
 
+@app.route("/delivered")
+def delivered():
+  return render_template("delivered.html")
+
 
 # Running the web application
 if __name__ == "__main__":

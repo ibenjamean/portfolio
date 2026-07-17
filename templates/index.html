@@ -1,373 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benjamin Kadiri - Portfolio</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Kadiri - Portfolio</title>
 
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.svg') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon.svg') }}">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
 
-<body>
-  <canvas id="page-canvas"></canvas>
-    <aside class="sidebar glass-card" id="sidebar">
-      <div class="navbar">
-        <div class="logo">
-          <a class="sidebar-logo" href="#home">
-            <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
-            <span class="label">Minima</span>
-          </a>
+  <body>
+    <canvas id="page-canvas"></canvas>
+      <aside class="sidebar glass-card" id="sidebar">
+        <div class="navbar">
+          <div class="logo">
+            <a class="sidebar-logo" href="{{ url_for('home') }}" data-tooltip="Home">
+              <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+              <span class="label">Minima</span>
+            </a>
 
-          <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Expand navigation">
-            <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
-          </button>
+            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Expand navigation" data-tooltip="Expand">
+              <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-icons" href="#about">
+              <span class="icon" data-tooltip="About"><i class="fa-solid fa-circle-info"></i></span>
+              <span class="label">About</span>
+            </a>
+            <a class="nav-icons" href="#projects">
+              <span class="icon" data-tooltip="Projects"><i class="fa-solid fa-briefcase"></i></span>
+              <span class="label">Projects</span>
+            </a>
+            <a class="nav-icons" href="#skills">
+              <span class="icon" data-tooltip="Skills"><i class="fa-solid fa-tools"></i></span>
+              <a href="{{ url_for('delivered') }}">
+                <span class="label">Skills</span>
+              </a>
+            </a>
+            <a class="nav-icons" href="#contact">
+              <span class="icon" data-tooltip="Contact"><i class="fa-solid fa-message"></i></span>
+              <span class="label">Contact</span>
+            </a>
+          </nav>
         </div>
 
-        <nav class="sidebar-nav">
-          <a href="#about">
-            <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
-            <span class="label">About</span>
-          </a>
-          <a href="#projects">
-            <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
-            <span class="label">Projects</span>
-          </a>
-          <a href="#skills">
-            <span class="icon"><i class="fa-solid fa-tools"></i></span>
-            <span class="label">Skills</span>
-          </a>
-          <a href="#contact">
-            <span class="icon"><i class="fa-solid fa-message"></i></span>
-            <span class="label">Contact</span>
-          </a>
-        </nav>
-      </div>
+        <a class="sidebar-nav-item" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>
+          <span class="icon" data-tooltip="C.V"><i class="fa-solid fa-download"></i></span>
+          <span class="label">Resume</span>
+        </a>
 
-      <a class="sidebar-nav-item" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>
-        <span class="icon"><i class="fa-solid fa-download"></i></span>
-        <span class="label">Resume</span>
-      </a>
+        <div class="theme-nav">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" data-tooltip="Theme">☀️</button>
+          <span class="label">Theme</span>
+        </div>
+        
+      </aside>
 
-      <div class="theme-nav">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">☀️</button>
-        <span class="label">Theme</span>
-      </div>
-      
-    </aside>
-
-  <main>
-    <section id="home" class="hero">
-      <canvas id="bg-canvas"></canvas>
-      <div class="container hero-inner">
-        <img class="hero-image reveal-left" src="{{ url_for('static', filename='images/hero.png') }}" alt="Benjamin Kadiri">
-        
-        
-        <div class="hero-grid">
-        
-          <div class="terminal-glow reveal-right">
-            <div class="terminal">
-              <div class="terminal-bar">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <div class="terminal-body">
-                <div class="line" id="line1">
-                  <span id="line1-text"></span>
+    <main>
+      <section id="home" class="hero">
+        <canvas id="bg-canvas"></canvas>
+        <div class="container hero-inner">
+          <img class="hero-image reveal-left" src="{{ url_for('static', filename='images/hero.png') }}" alt="Benjamin Kadiri">
+          
+          
+          <div class="hero-grid">
+          
+            <div class="terminal-glow reveal-right">
+              <div class="terminal">
+                <div class="terminal-bar">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
                 </div>
-                <div class="line" id="line2">
-                  <span id="line2-text"></span>
-                </div>
-                <div class="line" id="line3">
-                  <span id="line3-text"></span>
+                <div class="terminal-body">
+                  <div class="line" id="line1">
+                    <span id="line1-text"></span>
+                  </div>
+                  <div class="line" id="line2">
+                    <span id="line2-text"></span>
+                  </div>
+                  <div class="line" id="line3">
+                    <span id="line3-text"></span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="hero-desc-row">
-            <p class="hero-description glass-card reveal-right">I turn data into insights and business-rewarding value by building data-driven solutions using Python, Visualizations, and Machine Learning to help teams make smarter decisions.</p>
-            <span class="reveal-right">
-              <a class="cta-button" href="#projects">View my work</a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="reveal-left">
-
-    <section id="about" class="section">
-      <div class="container section-inner reveal">
-        <h2>About</h2>
-        <p class="reveal-left">{{ about.hook }}</p>
-        <p class="reveal-left" style="font-style: italic;">{{ about.philosophy }}</p>
-        <p class="reveal-left">{{ about.story }}</p>
-
-        <div class="toolkit-grid">
-          {% for group in about.toolkit %}
-          <div class="toolkit-card glass-card reveal-right">
-            <h3>{{ group.category }}</h3>
-            <ul>
-              {% for item in group.tools %}
-              <li>{{ item }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-
-      <a class="cta-button resume reveal" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>Download Resume </a>
-    </section>
-
-    <hr class="reveal-left">
-
-    <section id="projects" class="section">
-      <div class="container section-inner">
-        <h2 class="reveal-left">Projects</h2>
-        {% for project in projects %}
-        <div class="project-block">
-          <h3 class="project-title reveal">{{ project.title }}</h3>
-
-          <div class="project-card glass-card reveal">
-            <h4>The Problem</h4>
-            <p class="project-statement">{{ project.problem }}</p>
-          </div>
-
-          <div class="project-card glass-card reveal">
-            <h4>The Solution</h4>
-            <p class="project-statement">{{ project.solution }}</p>
-          </div>
-
-          <div class="project-card glass-card reveal">
-            <h4>The Modeling</h4>
-              {% if project.notebook_url %}
-            <div class="notebook-embed glass-card reveal">
-              <iframe src="{{ url_for('static', filename=project.notebook_url) }}" loading="lazy" title="{{ project.title }} notebook"></iframe>
-            </div>
-            {% endif %}
-          </div>
-
-          <div class="project-links reveal">
-            <a class="cta-button" href="{{ project.live_url }}" target="_blank">Live App ↗</a>
-            <a class="cta-button" href="{{ project.kaggle_url }}" target="_blank">Dataset ↗</a>
-            <a class="cta-button" href="{{ project.github_url }}" target="_blank">GitHub ↗</a>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-
-    <hr class="reveal-left">
-
-    <section id="skills" class="section">
-      <div class="container section-inner">
-        <h2 class="reveal-left">Skills</h2>
-
-        <div class="skills-list">
-          {% for skill in skills %}
-          <div class="skill-row reveal">
-            <div class="skill-label reveal-left">
-              <span class="skill-name">{{ skill.name }}</span>
-              <span class="skill-stars">
-                {% set star_count = (skill.percent // 20) + skill.stars %}
-                {% for i in range(1, 6) %}
-                  {% if i <= star_count %}★{% else %}☆{% endif %}
-                {% endfor %}
+            <div class="hero-desc-row">
+              <p class="hero-description glass-card reveal-right">I turn data into insights and business-rewarding value by building data-driven solutions using Python, Visualizations, and Machine Learning to help teams make smarter decisions.</p>
+              <span class="reveal-right">
+                <a class="cta-button" href="#projects">View my work</a>
               </span>
             </div>
-            <div class="skill-bar-track reveal-right">
-              <div class="skill-bar-fill" data-percent="{{ skill.percent }}">
-                <span class="skill-percent">{{ skill.percent }}%</span>
+          </div>
+        </div>
+      </section>
+
+      <hr class="reveal-left">
+
+      <section id="about" class="section">
+        <div class="container section-inner reveal">
+          <h2>About</h2>
+          <p class="reveal-left">{{ about.hook }}</p>
+          <p class="reveal-left" style="font-style: italic;">{{ about.philosophy }}</p>
+          <p class="reveal-left">{{ about.story }}</p>
+
+          <div class="toolkit-grid">
+            {% for group in about.toolkit %}
+            <div class="toolkit-card glass-card reveal-right">
+              <h3>{{ group.category }}</h3>
+              <ul>
+                {% for item in group.tools %}
+                <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+
+          <a class="cta-button resume reveal" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>Download Resume </a>
+
+        </div>
+      </section>
+
+      <hr class="reveal-left">
+
+      <section id="projects" class="section">
+        <div class="container section-inner">
+          <h2 class="reveal-left">Projects</h2>
+          {% for project in projects %}
+          <div class="project-block">
+            <h3 class="project-title reveal">{{ project.title }}</h3>
+
+            <div class="project-card glass-card reveal">
+              <h4>The Problem</h4>
+              <p class="project-statement">{{ project.problem }}</p>
+            </div>
+
+            <div class="project-card glass-card reveal">
+              <h4>The Solution</h4>
+              <p class="project-statement">{{ project.solution }}</p>
+            </div>
+
+            <div class="project-card glass-card reveal">
+              <h4>The Modeling</h4>
+                {% if project.notebook_url %}
+              <div class="notebook-embed glass-card reveal">
+                <iframe src="{{ url_for('static', filename=project.notebook_url) }}" loading="lazy" title="{{ project.title }} notebook"></iframe>
               </div>
+              {% endif %}
+            </div>
+
+            <div class="project-links reveal">
+              <a class="cta-button" href="{{ project.live_url }}" target="_blank">Live App ↗</a>
+              <a class="cta-button" href="{{ project.kaggle_url }}" target="_blank">Dataset ↗</a>
+              <a class="cta-button" href="{{ project.github_url }}" target="_blank">GitHub ↗</a>
             </div>
           </div>
           {% endfor %}
         </div>
+      </section>
 
-        <div class="cert-content">
-          <h3 class="reveal-left" style="margin-top: 48px; text-align: center;">Certifications</h3>
-          <div class="certifications-grid">
-            {% for cert in certifications %}
-            <div class="cert-card">
-              <p class="cert-issuer">{{ cert.issuer }}</p>
-              <img class="cert glass-card" src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.issuer }}">
-              <p class="cert-credential">{{ cert.credential }}</p>
-            </div>
-            {% endfor %}
+      <hr class="reveal-left">
 
+      <section id="skills" class="section">
+        <div class="container section-inner">
+          <h2 class="reveal-left">Skills</h2>
 
-            {% for cert in certifications %}
-            <div class="cert-card">
-              <p class="cert-issuer">{{ cert.issuer }}</p>
-              <img class="cert glass-card" src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.issuer }}">
-              <p class="cert-credential">{{ cert.credential }}</p>
-            </div>
-            {% endfor %}
-          </div>
-        </div> 
-      </div>
-    </section>
-
-    <hr class="reveal-left">
-
-    <section id="reviews" class="section">
-      <div class="container section-inner">
-        <h2 class="reveal-left">What People Say</h2>
-
-        <div class="carousel" id="review-carousel">
-          <div class="carousel-track" id="carousel-track">
-            {% for review in reviews %}
-            <div class="review-card">
-              <img class="review-avatar" src="{{ url_for('static', filename=review.image) }}" alt="{{ review.name }}">
-              <div class="review-stars reveal-left">
-                {% for i in range(1, 6) %}
-                  {% if i <= review.stars %}★{% else %}☆{% endif %}
-                {% endfor %}
+          <div class="skills-list">
+            {% for skill in skills %}
+            <div class="skill-row reveal">
+              <div class="skill-label reveal-left">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-stars">
+                  {% set star_count = (skill.percent // 20) + skill.stars %}
+                  {% for i in range(1, 6) %}
+                    {% if i <= star_count %}★{% else %}☆{% endif %}
+                  {% endfor %}
+                </span>
               </div>
-              <div class="review glass-card reveal">
-                <p class="review-comment">"{{ review.comment }}"</p>
-                <p class="review-name">{{ review.name }}</p>
+              <div class="skill-bar-track reveal-right">
+                <div class="skill-bar-fill" data-percent="{{ skill.percent }}">
+                  <span class="skill-percent">{{ skill.percent }}%</span>
+                </div>
               </div>
             </div>
             {% endfor %}
           </div>
+
+          <div class="cert-content">
+            <h3 class="reveal-left" style="margin-top: 48px; text-align: center;">Certifications</h3>
+            <div class="certifications-grid">
+              {% for cert in certifications %}
+              <div class="cert-card">
+                <p class="cert-issuer">{{ cert.issuer }}</p>
+                <img class="cert glass-card" src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.issuer }}">
+                <p class="cert-credential">{{ cert.credential }}</p>
+              </div>
+              {% endfor %}
+
+
+              {% for cert in certifications %}
+              <div class="cert-card">
+                <p class="cert-issuer">{{ cert.issuer }}</p>
+                <img class="cert glass-card" src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.issuer }}">
+                <p class="cert-credential">{{ cert.credential }}</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div> 
         </div>
+      </section>
 
-        <div class="carousel-dots" id="carousel-dots"></div>
-      </div>
-    </section>
+      <hr class="reveal-left">
 
-    <hr class="reveal-left">
+      <section id="reviews" class="section">
+        <div class="container section-inner">
+          <h2 class="reveal-left">What People Say</h2>
 
-    <section id="contact" class="section">
-      <div class="container section-inner contact-section">
-        <h2>Get in Touch</h2>
-
-        <div class="contact-flex">
-          <div class="contact-map glass-card reveal-left">
-            <iframe
-              src="https://www.google.com/maps?q=Ojo,Lagos,Nigeria&output=embed"
-              loading="lazy"
-              title="Location map">
-            </iframe>
+          <div class="carousel" id="review-carousel">
+            <div class="carousel-track" id="carousel-track">
+              {% for review in reviews %}
+              <div class="review-card">
+                <img class="review-avatar" src="{{ url_for('static', filename=review.image) }}" alt="{{ review.name }}">
+                <div class="review-stars reveal-left">
+                  {% for i in range(1, 6) %}
+                    {% if i <= review.stars %}★{% else %}☆{% endif %}
+                  {% endfor %}
+                </div>
+                <div class="review glass-card reveal">
+                  <p class="review-comment">"{{ review.comment }}"</p>
+                  <p class="review-name">{{ review.name }}</p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
           </div>
 
-          <div class="contact-brief">
-            <div class=" contact-form glass-card reveal-right">
-              <h3>Have a project in mind?</h3>
-              <p class="contact-desc">
-                Click below to fill out a short project brief. 
-                <br>All data is structured for rapid assessment!
-              </p>
-              
-              <a href="https://forms.gle/aVCC758moUfJw7Tw9" target="_blank" class="brief-btn glass-card" style="text-align: center; display: block; margin: 2rem auto;">
-                Open Project Brief Form
-              </a>
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </section>
+
+      <hr class="reveal-left">
+
+      <section id="contact" class="section">
+        <div class="container section-inner contact-section">
+          <h2>Get in Touch</h2>
+
+          <div class="contact-flex">
+            <div class="contact-map glass-card reveal-left">
+              <iframe
+                src="https://www.google.com/maps?q=Ojo,Lagos,Nigeria&output=embed"
+                loading="lazy"
+                title="Location map">
+              </iframe>
             </div>
 
-            <div class="direct-mail">
-              <p class="contact-alt">Prefer to just explain things in your own words?<br>Skip the form entirely.</p>
-              <a class="email cta-button" href="mailto:hello.kadiri@outlook.com">Email Me</a>
+            <div class="contact-brief">
+              <div class=" contact-form glass-card reveal-right">
+                <h3>Have a project in mind?</h3>
+                <p class="contact-desc">
+                  Click below to fill out a short project brief. 
+                  <br>All data is structured for rapid assessment!
+                </p>
+                
+                <a href="https://forms.gle/aVCC758moUfJw7Tw9" target="_blank" class="brief-btn glass-card" style="text-align: center; display: block; margin: 2rem auto;">
+                  Open Project Brief Form
+                </a>
+              </div>
+
+              <div class="direct-mail">
+                <p class="contact-alt">Prefer to just explain things in your own words?<br>Skip the form entirely.</p>
+                <a class="email cta-button" href="mailto:hello.kadiri@outlook.com">Email Me</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer class="footer reveal">
-    <div class="footer-grid reveal-right">
-      <div class="footer-col brand-col">
-        <h4>Minima</h4>
+    <footer class="footer reveal">
+      <div class="footer-grid reveal-right">
+        <div class="footer-col brand-col">
+          <h4>Minima</h4>
 
-        <div class="footer-socials">
-          <a href="https://github.com/meanima" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/ibenjamean" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          </a>
-          <a href="https://discord.com/users/@ibenjamean" target="_blank">
-            <i class="fab fa-discord"></i>
-          </a>
-          </a>
-          <a href="https://twitter.com/ibenjamean" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
+          <div class="footer-socials">
+            <a href="https://github.com/meanima" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ibenjamean" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            </a>
+            <a href="https://discord.com/users/@ibenjamean" target="_blank">
+              <i class="fab fa-discord"></i>
+            </a>
+            </a>
+            <a href="https://twitter.com/ibenjamean" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+
+          <p>.. From Data to Decisions.</p>
         </div>
 
-        <p>.. From Data to Decisions.</p>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#review">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+          
+        <div class="footer-col">
+          <h4>Specialties</h4>
+          <ul>
+            <li>Data Science & Analytics</li>
+            <li>Machine Learning Models</li>
+            <li>Security</li>
+            <li>Web Application Dev</li>
+          </ul>
+        </div>
+          
+        <div class="footer-col">
+          <h4>Toolkit</h4>
+          <ul>
+            <li><a href="https://www.anaconda.com/products/navigator" target="_blank">Jupyter / Anaconda</a></li>
+            <li><a href="https://colab.research.google.com/" target="_blank">Google Colab</a></li>
+            <li><a href="https://www.python.org/" target="_blank">Python</a>
+            <li><a href="https://github.com/" target="_blank">Git</a></li>
+            <li><a href="https://excel.cloud.microsoft/en-us/" target="_blank">Microsoft Excel</a></li>
+            <li><a href="https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads" target="_blank">Microsoft Power BI</a></li>
+            <li><a href="https://www.postgresql.org/" target="_blank">SQL</a>
+            <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#review">Reviews</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <hr class="reveal-right">
+
+      <div class="footer-bottom reveal-left">
+        <p>
+          &copy; 2026 Benjamin Kadiri. All rights reserved.<br>Developed by <strong>Benjamin Kadiri</strong>, with extensive assistance from <strong>Claude</strong>.
+        </p>
       </div>
-        
-      <div class="footer-col">
-        <h4>Specialties</h4>
-        <ul>
-          <li>Data Science & Analytics</li>
-          <li>Machine Learning Models</li>
-          <li>Security</li>
-          <li>Web Application Dev</li>
-        </ul>
-      </div>
-        
-      <div class="footer-col">
-        <h4>Toolkit</h4>
-        <ul>
-          <li><a href="https://www.anaconda.com/products/navigator" target="_blank">Jupyter / Anaconda</a></li>
-          <li><a href="https://colab.research.google.com/" target="_blank">Google Colab</a></li>
-          <li><a href="https://www.python.org/" target="_blank">Python</a>
-          <li><a href="https://github.com/" target="_blank">Git</a></li>
-          <li><a href="https://excel.cloud.microsoft/en-us/" target="_blank">Microsoft Excel</a></li>
-          <li><a href="https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads" target="_blank">Microsoft Power BI</a></li>
-          <li><a href="https://www.postgresql.org/" target="_blank">SQL</a>
-          <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
-        </ul>
-      </div>
+    </footer>
 
-    </div>
+    <script defer src="{{ url_for('static', filename = 'circles.js') }}"></script>
 
-    <hr class="reveal-right">
+    <script defer src="{{ url_for('static', filename = 'sidebar.js') }}"></script>
 
-    <div class="footer-bottom reveal-left">
-      <p>
-        &copy; 2026 Benjamin Kadiri. All rights reserved.<br>Developed by <strong>Benjamin Kadiri</strong>, with extensive assistance from <strong>Claude</strong>.
-      </p>
-    </div>
-  </footer>
+    <script defer src="{{ url_for('static', filename = 'circuit.js') }}"></script>
 
-  <script defer src="{{ url_for('static', filename = 'circles.js') }}"></script>
+    <script defer src="{{ url_for('static', filename = 'typewriter.js') }}"></script>
 
-  <script defer src="{{ url_for('static', filename = 'sidebar.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='theme.js') }}"></script>
 
-  <script defer src="{{ url_for('static', filename = 'circuit.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='reveal.js') }}"></script>
 
-  <script defer src="{{ url_for('static', filename = 'typewriter.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='skillBars.js') }}"></script>
 
-  <script defer src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='carousel.js') }}"></script>
 
-  <script defer src="{{ url_for('static', filename='reveal.js') }}"></script>
-
-  <script defer src="{{ url_for('static', filename='skillBars.js') }}"></script>
-
-  <script src="{{ url_for('static', filename='carousel.js') }}"></script>
-
-</body>
+  </body>
+  
 </html>

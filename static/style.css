@@ -65,7 +65,7 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   overscroll-behavior-x: none;
 }
 
@@ -74,7 +74,7 @@ main {
   z-index: 1;
   min-height: 100%;
   overflow-x: hidden;
-  padding-left: 42px;
+  /* padding-left: 42px; */
   transition: padding-left 0.25s ease;
 }
 
@@ -82,9 +82,51 @@ main {
   padding-left: 120px;
 }
 
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--c2);
+  color: var(--c3);
+  font-size: 0.6rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 4px 6px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+}
+
+[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border: 5px solid transparent;
+  border-top-color: var(--c1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+}
+
+[data-tooltip]:hover::after, [data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 hr {
   width: 50%;
-  margin: auto;
+  margin-left: calc(25% + 20px);
   border: 0;
   border-top: 1px dashed var(--c2);
 }
@@ -120,13 +162,13 @@ a {
   padding: 3rem 0 3.5rem;
   z-index: 20;
   overflow: hidden; /* hides labels until there's room to show them */
-  transition: width 0.25s ease;
+  transition: width 0.7s ease;
 }
 
 .sidebar.expanded {
-  width: 120px; /* wide enough for icon + label side by side */
+  width: 130px; /* wide enough for icon + label side by side */
   align-items: center;
-  /* padding-left: 16px; */
+  transition: width 0.7s ease;
 }
 
 .navbar, .logo {
@@ -178,12 +220,12 @@ a {
 .sidebar-toggle .arrow {
   display: inline-block;
   transition: transform 0.25s ease;
+  transform: rotate(360deg) scale(1.2);
 }
 
 .sidebar-toggle:hover {
   background: var(--c7);
   color: var(--c6);
-  transform: rotate(360deg) scale(1.2);
 }
 
 .sidebar.expanded .sidebar-toggle .arrow {
@@ -207,7 +249,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 0 6px;
+  padding: 0 0 2px;
   white-space: nowrap; /* keeps label from wrapping awkwardly during the transition */
 }
 
@@ -265,7 +307,7 @@ a {
 }
 
 .sidebar.expanded .sidebar-nav a .label:hover, .sidebar.expanded .sidebar-nav-item .label:hover  {
-  color:var(--c3);
+  color:var(--c2);
 }
 
 .sidebar-nav a:hover::after, .sidebar-nav-item:hover::after {
@@ -287,7 +329,7 @@ a {
 
 .theme-toggle:hover {
   background: var(--c6);
-  transform: rotate(20deg) scale(1.15);
+  transform: scale(1.15);
 }
 
 .hero, .section-inner {
@@ -309,7 +351,7 @@ a {
   gap: 2rem;
   align-items: center;
   /* width: 80%; */
-  margin: 0 auto;
+  margin: 2rem auto;
   justify-content: space-between;
 }
 
@@ -507,7 +549,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   position: relative;
   z-index: 1; /* keeps content above the canvas */
   /* max-width: 60%; */
-  margin: 0;
+  margin: 4.5rem 0 3rem;
   display: grid;
   gap: 1.5rem;
 }
@@ -952,6 +994,47 @@ p.hero-description.glass-card.reveal-right.is-visible {
 .footer hr {
   border-top: 1px dashed var(--foot-header);
   margin-bottom: .6rem;
+}
+
+
+
+
+
+
+.error-body {
+  margin: 0;
+  min-height: 100vh;
+  align-items: center;
+  background: var(--c7);
+  padding: 20px;
+}
+
+.error-page {
+  width: 60%;
+  margin: auto;
+  max-width: 500px;
+}
+
+.error-card {
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.error-emoji {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.error-code {
+  font-size: 2.5rem;
+  color: var(--c3);
+  margin: 0 0 12px;
+}
+
+.error-text {
+  color: var(--c4);
+  margin: 0 0 28px;
+  line-height: 1.6;
 }
 
 
