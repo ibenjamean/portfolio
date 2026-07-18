@@ -131,6 +131,11 @@ hr {
   border-top: 1px dashed var(--c2);
 }
 
+.project-hr {
+  border-top: 1px dashed var(--c4);
+  margin-bottom: 4rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -568,19 +573,22 @@ p.hero-description.glass-card.reveal-right.is-visible {
   margin: 0 auto;
   text-align: center;
   max-width: 720px;
-  color: var(--c4);
+}
+
+.philosophy {
+  color: var(--c2);
 }
 
 .toolkit-grid {
-  margin: 1.5rem 0 3rem;
+  margin: 1.5rem auto 3rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   gap: 20px;
 }
 
 .toolkit-card {
-  min-width: 332px;
+  min-width: fit-content;
   padding: 20px;
   transition: transform .6s;
 }
@@ -598,11 +606,6 @@ p.hero-description.glass-card.reveal-right.is-visible {
   padding-left: 18px;
   color: var(--c4);
 }
-
-/* .toolkit-card ul li::before {
-  content: icon;
-  color: var(--c2);
-} */
 
 .resume, .email {
   display: block;
@@ -1001,39 +1004,36 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
 
 
-.error-body {
+.resume-body {
   margin: 0;
   min-height: 100vh;
-  align-items: center;
+  /* align-items: center; */
   background: var(--c7);
-  padding: 20px;
 }
 
-.error-page {
+.resume-page {
   width: 60%;
-  margin: auto;
-  max-width: 500px;
+  margin: 4rem auto 10rem;
+  margin-left: calc(20% + 20px);
+  /* max-width: 500px; */
 }
 
-.error-card {
-  padding: 48px 32px;
+.resume-card {
+  padding: 32px 20px;
   text-align: center;
+  font-weight: bolder;
 }
 
-.error-emoji {
-  font-size: 3rem;
-  margin-bottom: 16px;
-}
-
-.error-code {
-  font-size: 2.5rem;
-  color: var(--c3);
+.resume-head {
+  font-size: 1.2rem;
+  color: var(--c2);
   margin: 0 0 12px;
 }
 
-.error-text {
+.resume-text {
   color: var(--c4);
-  margin: 0 0 28px;
+  margin: 4.5rem 0 1.5rem;
+  font-size: .8rem;
   line-height: 1.6;
 }
 

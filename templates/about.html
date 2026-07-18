@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamin Kadiri - Portfolio</title>
+    <title>About - Benjamin Kadiri</title>
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.svg') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon.svg') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
 
-  <body>
+  <body class="error-body">
+
     <canvas id="page-canvas"></canvas>
       <aside class="sidebar glass-card" id="sidebar">
         <div class="navbar">
@@ -37,18 +38,18 @@
               <span class="icon" data-tooltip="Projects"><i class="fa-solid fa-briefcase"></i></span>
               <span class="label">Projects</span>
             </a>
-            <a class="nav-icons" href="#skills">
+            <a class="nav-icons" href="/#skills">
               <span class="icon" data-tooltip="Skills"><i class="fa-solid fa-tools"></i></span>
               <span class="label">Skills</span>
             </a>
-            <a class="nav-icons" href="#contact">
+            <a class="nav-icons" href="/#contact">
               <span class="icon" data-tooltip="Contact"><i class="fa-solid fa-message"></i></span>
               <span class="label">Contact</span>
             </a>
           </nav>
         </div>
 
-        <a class="sidebar-nav-item" href="resume">
+        <a class="sidebar-nav-item" href="{{ url_for('resume') }}">
           <span class="icon" data-tooltip="C.V"><i class="fa-solid fa-download"></i></span>
           <span class="label">Resume</span>
         </a>
@@ -63,13 +64,12 @@
     <main>
       <section id="home" class="hero">
         <canvas id="bg-canvas"></canvas>
-        <div class="container hero-inner">
+        <div class="container hero-inner" style="justify-content: space-around;">
+
           <img class="hero-image reveal-left" src="{{ url_for('static', filename='images/hero.png') }}" alt="Benjamin Kadiri">
           
-          
-          <div class="hero-grid">
-          
-            <div class="terminal-glow reveal-right">
+          <div class="hero-grid" style="align-items: center;">
+            <div class="terminal-glow reveal-right" style="min-width: 100%;">
               <div class="terminal">
                 <div class="terminal-bar">
                   <span class="dot red"></span>
@@ -90,23 +90,22 @@
               </div>
             </div>
 
-            <div class="hero-desc-row">
-              <p class="hero-description glass-card reveal-right">I turn data into insights and business-rewarding value by building data-driven solutions using Python, Visualizations, and Machine Learning to help teams make smarter decisions.</p>
-              <span class="reveal-right">
-                <a class="cta-button" href="{{ url_for('projects') }}">View my work</a>
-              </span>
-            </div>
+            <h1 style="font-size: xxx-large;">About Me</h1>
+
           </div>
         </div>
       </section>
 
       <hr class="reveal-left">
-
+      
+      
       <section id="about" class="section">
         <div class="container section-inner reveal">
-          <h2>About</h2>
-          <p class="philosophy reveal-left" style="font-style: italic; font-weight: bold;">{{ about.philosophy }}</p>
           <p class="reveal-left">{{ about.hook }}</p>
+          <p class="philosophy reveal-left">
+            <strong style="font-size: 1.3rem;">Philosophy</strong><br><span style="font-style: italic; padding-top: 0.8rem; font-weight: bold;">{{ about.philosophy }}</span>
+          </p>
+          <p class="reveal-left">{{ about.story }}</p>
 
           <div class="toolkit-grid">
             {% for group in about.toolkit %}
@@ -121,133 +120,25 @@
             {% endfor %}
           </div>
 
+          <div class="toolkit-card glass-card reveal">
+            <h3>My Resume</h3>
+              {% if about.resume_url %}
+            <div class="notebook-embed glass-card reveal" style="margin-top: 1rem;">
+              <iframe src="{{ url_for('static', filename=about.resume_url) }}" loading="lazy" title="{{ about.title }} notebook" style="background-color: white; min-height: 100vh;"></iframe>
+            </div>
+            {% endif %}
+          </div>
+
           <a class="cta-button resume reveal" href="resume">Download Resume </a>
 
         </div>
       </section>
-
-      <hr class="reveal-left">
-
-      <section id="projects" class="section">
-        <div class="container section-inner">
-          <h2 class="reveal-left">Projects</h2>
-          {% for project in projects %}
-          <div class="project-block">
-            <a href="{{ url_for('projects') }}" class="project-title reveal">{{ project.title }}</a>
-
-            <div class="project-card glass-card reveal">
-              <p class="project-statement">{{ project.solution }}</p>
-            </div>
-
-            <div class="project-links reveal">
-              <a class="cta-button" href="{{ project.live_url }}" target="_blank">Live App ↗</a>
-              <a class="cta-button" href="{{ project.kaggle_url }}" target="_blank">Dataset ↗</a>
-              <a class="cta-button" href="{{ project.github_url }}" target="_blank">GitHub ↗</a>
-            </div>
-
-          </div>
-
-          <hr class="project-hr reveal-left" style="width: 100%; margin: 0;">
-
-          {% endfor %}
-        </div>
-      </section>
-
-      <hr class="reveal-left">
-
-      <section id="skills" class="section">
-        <div class="container section-inner">
-          <h2 class="reveal-left">Skills</h2>
-
-          <div class="skills-list">
-            {% for skill in skills %}
-            <div class="skill-row reveal">
-              <div class="skill-label reveal-left">
-                <span class="skill-name">{{ skill.name }}</span>
-                <span class="skill-stars">
-                  {% set star_count = (skill.percent // 20) + skill.stars %}
-                  {% for i in range(1, 6) %}
-                    {% if i <= star_count %}★{% else %}☆{% endif %}
-                  {% endfor %}
-                </span>
-              </div>
-              <div class="skill-bar-track reveal-right">
-                <div class="skill-bar-fill" data-percent="{{ skill.percent }}">
-                  <span class="skill-percent">{{ skill.percent }}%</span>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-
-          <div class="cert-content">
-            <h3 class="reveal-left" style="margin-top: 48px; text-align: center;">Certifications</h3>
-            <div class="certifications-grid">
-              {% for cert in certifications %}
-              <div class="cert-card">
-                <p class="cert-issuer">{{ cert.issuer }}</p>
-                <img class="cert glass-card" src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.issuer }}">
-                <p class="cert-credential">{{ cert.credential }}</p>
-              </div>
-              {% endfor %}
-
-
-              {% for cert in certifications %}
-              <div class="cert-card">
-                <p class="cert-issuer">{{ cert.issuer }}</p>
-                <img class="cert glass-card" src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.issuer }}">
-                <p class="cert-credential">{{ cert.credential }}</p>
-              </div>
-              {% endfor %}
-            </div>
-          </div> 
-        </div>
-      </section>
-
-      <hr class="reveal-left">
-
-      <section id="reviews" class="section">
-        <div class="container section-inner">
-          <h2 class="reveal-left">What People Say</h2>
-
-          <div class="carousel" id="review-carousel">
-            <div class="carousel-track" id="carousel-track">
-              {% for review in reviews %}
-              <div class="review-card">
-                <img class="review-avatar" src="{{ url_for('static', filename=review.image) }}" alt="{{ review.name }}">
-                <div class="review-stars reveal-left">
-                  {% for i in range(1, 6) %}
-                    {% if i <= review.stars %}★{% else %}☆{% endif %}
-                  {% endfor %}
-                </div>
-                <div class="review glass-card reveal">
-                  <p class="review-comment">"{{ review.comment }}"</p>
-                  <p class="review-name">{{ review.name }}</p>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="carousel-dots" id="carousel-dots"></div>
-        </div>
-      </section>
-
-      <hr class="reveal-left">
 
       <section id="contact" class="section">
         <div class="container section-inner contact-section">
           <h2>Get in Touch</h2>
 
           <div class="contact-flex">
-            <div class="contact-map glass-card reveal-left">
-              <iframe
-                src="https://www.google.com/maps?q=Ojo,Lagos,Nigeria&output=embed"
-                loading="lazy"
-                title="Location map">
-              </iframe>
-            </div>
-
             <div class="contact-brief">
               <div class=" contact-form glass-card reveal-right">
                 <h3>Have a project in mind?</h3>
@@ -265,6 +156,7 @@
                 <p class="contact-alt">Prefer to just explain things in your own words?<br>Skip the form entirely.</p>
                 <a class="email cta-button" href="mailto:hello.kadiri@outlook.com">Email Me</a>
               </div>
+
             </div>
           </div>
         </div>
@@ -354,8 +246,6 @@
     <script defer src="{{ url_for('static', filename='theme.js') }}"></script>
 
     <script defer src="{{ url_for('static', filename='reveal.js') }}"></script>
-
-    <script defer src="{{ url_for('static', filename='skillBars.js') }}"></script>
 
     <script src="{{ url_for('static', filename='carousel.js') }}"></script>
 

@@ -9,20 +9,20 @@ app = Flask(__name__)
 def home():
   about = {
     "hook": "I'm a Data Engineer, a Data Analyst, & a Machine Learning Developer who transforms raw, chaotic real-world web data into production-ready models and interactive web applications.",
-    "philosophy": "Driven by curiosity, precision, and solving unglamorous data problems that others skip.",
+    "philosophy": "Driven by curiosity, precision, and solving messy data problems that others may skip.",
     "story": "Instead of just downloading clean datasets from data sites, I write custom web scrapers to scrape data from sites, source live real-world data from reliable platforms and gorvenmental programs, gather primary data from carrying out actual survey, then fight through these messy data, engineer custom feature hierarchies, and deploy full-stack apps end to end.",
     "toolkit": [
       {
         "category": "Languages",
-        "tools": ["Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)", "SQL"]
+        "tools": ["Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)", "SQL", "Javascript"]
       },
       {
         "category": "ML & Deployment",
-        "tools": ["Streamlit", "Flask", "Render", "Git/GitHub"]
+        "tools": ["Jupyter Lab", "Google Colab", "Azure ML", "Streamlit", "Flask", "Render", "Git/GitHub"]
       },
       {
         "category": "Data Engineering",
-        "tools": ["Data Cleaning & Preparation", "Feature Engineering", "Pipeline Automation"]
+        "tools": ["Data Preprocessing & Preparation", "Feature Engineering", "Pipeline Automation"]
       }
     ]
   }
@@ -30,12 +30,15 @@ def home():
   projects = [
     {
       "title": "Lagos Real Estate Valuation Engine & Pipeline",
-      "problem": "Real estate listings in Lagos are noisy and unstructured, with entry errors that inflated some prices to absurd values due to currency-symbol mistakes.",
       "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
-      "notebook_url": "notebooks/lagos-price-model.html",
-      "live_url": "https://laghousespricepred.streamlit.app/",
-      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
-      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
+    },
+    {
+      "title": "Lagos Real Estate Valuation Engine & Pipeline",
+      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
+    },
+    {
+      "title": "Lagos Real Estate Valuation Engine & Pipeline",
+      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
     }
   ]
 
@@ -68,9 +71,77 @@ def home():
 
   return render_template("index.html", about=about, projects=projects, skills=skills, certifications=certifications, reviews=reviews)
 
-@app.route("/delivered")
-def delivered():
-  return render_template("delivered.html")
+
+
+@app.route("/about")
+def about():
+
+  about = {
+    "hook": "I'm a Data Engineer, a Data Analyst, & a Machine Learning Developer who transforms raw, chaotic real-world web data into production-ready models and interactive web applications.",
+    "philosophy": "Driven by curiosity, precision, and solving messy data problems others may skip.",
+    "story": "Instead of just downloading clean datasets from data sites, I write custom web scrapers to scrape data from sites, source live real-world data from reliable platforms and gorvenmental programs, gather primary data from carrying out actual survey, then fight through these messy data, engineer custom feature hierarchies, and deploy full-stack apps end to end.",
+    "toolkit": [
+      {
+        "category": "Languages",
+        "tools": ["Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)", "SQL", "Javascript"]
+      },
+      {
+        "category": "ML & Deployment",
+        "tools": ["Jupyter Lab", "Google Colab", "Azure ML", "Streamlit", "Flask", "Render", "Git/GitHub"]
+      },
+      {
+        "category": "Data Engineering",
+        "tools": ["Data Preprocessing & Preparation", "Feature Engineering", "Pipeline Automation"]
+      }
+    ],
+    "title": "My Resume",
+    "resume_url": "notebooks/resume.html"
+  }
+
+  return render_template("about.html", about=about)
+
+
+
+@app.route("/projects")
+def projects():
+
+  projects = [
+    {
+      "title": "Lagos Real Estate Valuation Engine & Pipeline",
+      "problem": "Real estate listings in Lagos are noisy and unstructured, with entry errors that inflated some prices to absurd values due to currency-symbol mistakes.",
+      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
+      "notebook_url": "notebooks/lagos-price-model.html",
+      "live_url": "https://laghousespricepred.streamlit.app/",
+      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
+      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
+    },
+    {
+      "title": "Lagos Real Estate Valuation Engine & Pipeline",
+      "problem": "Real estate listings in Lagos are noisy and unstructured, with entry errors that inflated some prices to absurd values due to currency-symbol mistakes.",
+      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
+      "notebook_url": "notebooks/lagos-price-model.html",
+      "live_url": "https://laghousespricepred.streamlit.app/",
+      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
+      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
+    },
+    {
+      "title": "Lagos Real Estate Valuation Engine & Pipeline",
+      "problem": "Real estate listings in Lagos are noisy and unstructured, with entry errors that inflated some prices to absurd values due to currency-symbol mistakes.",
+      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
+      "notebook_url": "notebooks/lagos-price-model.html",
+      "live_url": "https://laghousespricepred.streamlit.app/",
+      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
+      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
+    }
+  ]
+  return render_template("projects.html", projects=projects)
+
+
+
+@app.route("/resume")
+def resume():
+  return render_template("resume.html")
+
 
 
 # Running the web application

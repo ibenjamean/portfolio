@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Delivered - Benjamin Kadiri</title>
+    <title>Resume Downloaded - Benjamin Kadiri</title>
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.svg') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon.svg') }}">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
 
-  <body class="error-body">
+  <body class="resume-body">
 
     <canvas id="page-canvas"></canvas>
       <aside class="sidebar glass-card" id="sidebar">
@@ -30,31 +30,24 @@
           </div>
 
           <nav class="sidebar-nav">
-            <a class="nav-icons" href="#about">
+            <a class="nav-icons" href="{{ url_for('about') }}">
               <span class="icon" data-tooltip="About"><i class="fa-solid fa-circle-info"></i></span>
               <span class="label">About</span>
             </a>
-            <a class="nav-icons" href="#projects">
+            <a class="nav-icons" href="{{ url_for('projects') }}">
               <span class="icon" data-tooltip="Projects"><i class="fa-solid fa-briefcase"></i></span>
               <span class="label">Projects</span>
             </a>
-            <a class="nav-icons" href="#skills">
+            <a class="nav-icons" href="/#skills">
               <span class="icon" data-tooltip="Skills"><i class="fa-solid fa-tools"></i></span>
-              <a href="{{ url_for('delivered') }}">
-                <span class="label">Skills</span>
-              </a>
+              <span class="label">Skills</span>
             </a>
-            <a class="nav-icons" href="#contact">
+            <a class="nav-icons" href="/#contact">
               <span class="icon" data-tooltip="Contact"><i class="fa-solid fa-message"></i></span>
               <span class="label">Contact</span>
             </a>
           </nav>
         </div>
-
-        <a class="sidebar-nav-item" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>
-          <span class="icon" data-tooltip="C.V"><i class="fa-solid fa-download"></i></span>
-          <span class="label">Resume</span>
-        </a>
 
         <div class="theme-nav">
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" data-tooltip="Theme">☀️</button>
@@ -64,12 +57,18 @@
       </aside>
 
     <main>
-      <div class="error-page">
-        <div class="error-card glass-card">
-          <div class="error-emoji">🎊</div>
-          <h1 class="error-code">Success!</h1>
-          <p class="error-text">Your message has been succesfully received.<br>Thank you for contacting me.</p>
-          <a class="cta-button" href="/#contact">← Back to Contact</a>
+      <div class="resume-page">
+        <div class="resume-card glass-card">
+          <!-- <div class="error-emoji"><i class="fa-solid fa-download"></i></div> -->
+          <p class="resume-head">Download Resume!</p>
+
+          <a class="sidebar-nav-item cta-button" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>
+            <span class="icon" data-tooltip="C.V"><i class="fa-solid fa-download"></i></span>
+            <span class="label">Resume</span>
+          </a>
+
+          <p class="resume-text">Download complete?<br>Thank you for visiting.</p>
+          <a class="cta-button" href="{{ url_for('home') }}">← Back to Home</a>
         </div>
       </div>
     </main>
@@ -80,7 +79,7 @@
           <h4>Minima</h4>
 
           <div class="footer-socials">
-            <a href="https://github.com/meanima" target="_blank">
+            <a href="https://github.com/ibenjamean" target="_blank">
               <i class="fab fa-github"></i>
             </a>
             <a href="https://www.linkedin.com/in/ibenjamean" target="_blank">
@@ -102,9 +101,9 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('projects') }}">Projects</a></li>
             <li><a href="#review">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -139,8 +138,9 @@
       <hr class="reveal-right">
 
       <div class="footer-bottom reveal-left">
+        <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
         <p>
-          &copy; 2026 Benjamin Kadiri. All rights reserved.<br>Developed by <strong>Benjamin Kadiri</strong>, with extensive assistance from <strong>Claude</strong>.
+          Developed by <strong>Benjamin Kadiri</strong>, with extensive assistance from <strong>Claude</strong>.<br>&copy; 2026 Benjamin Kadiri. All rights reserved.
         </p>
       </div>
     </footer>
