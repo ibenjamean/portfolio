@@ -373,6 +373,7 @@ a {
 
 .hero-image {
   width:40%;
+  padding: 12px;
   border-radius: 28px;
   object-fit:cover;
   border: 2px solid var(--c8);
@@ -1103,10 +1104,6 @@ p.hero-description.glass-card.reveal-right.is-visible {
     display:block;
   }
 
-  .hero-image {
-    width: 50%;
-  }
-
   .hero-desc-row{
     gap:2rem;
   }
@@ -1195,6 +1192,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
   .hero-image {
     width: 85%;
+    padding: 10px;
   }
 
   .hero-grid {
