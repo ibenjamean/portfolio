@@ -9,7 +9,7 @@ const titles = [
   "A Data Scientist & ML Engineer.",
   "A Certified Economist.",
   "A Certified Data Analyst.",
-  "A Security professional."
+  "A Security Professional."
 ];
 
 const cursor = document.createElement("span");

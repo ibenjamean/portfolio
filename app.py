@@ -31,14 +31,13 @@ def home():
     {
       "title": "Lagos Real Estate Valuation Engine & Pipeline",
       "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
+      "live_url": "https://laghousespricepred.streamlit.app/",
+      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
+      "github_url": "https://github.com/ibenjamean/lagos-properties-price-prediction"
     },
     {
-      "title": "Lagos Real Estate Valuation Engine & Pipeline",
-      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
-    },
-    {
-      "title": "Lagos Real Estate Valuation Engine & Pipeline",
-      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
+      "title": "Coming soon",
+      "solution": "Something new is currently in the works. Be expectant!",
     }
   ]
 
@@ -113,25 +112,12 @@ def projects():
       "notebook_url": "notebooks/lagos-price-model.html",
       "live_url": "https://laghousespricepred.streamlit.app/",
       "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
-      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
+      "github_url": "https://github.com/ibenjamean/lagos-properties-price-prediction"
     },
     {
-      "title": "Lagos Real Estate Valuation Engine & Pipeline",
-      "problem": "Real estate listings in Lagos are noisy and unstructured, with entry errors that inflated some prices to absurd values due to currency-symbol mistakes.",
-      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
-      "notebook_url": "notebooks/lagos-price-model.html",
-      "live_url": "https://laghousespricepred.streamlit.app/",
-      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
-      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
-    },
-    {
-      "title": "Lagos Real Estate Valuation Engine & Pipeline",
-      "problem": "Real estate listings in Lagos are noisy and unstructured, with entry errors that inflated some prices to absurd values due to currency-symbol mistakes.",
-      "solution": "Scraped 19,000+ raw listings with custom Python scrapers, built an anomaly-cleaning pipeline with currency-mapping logic, published the dataset on Kaggle, and trained a regression model (R\u00b2 = 0.76) to predict prices.",
-      "notebook_url": "notebooks/lagos-price-model.html",
-      "live_url": "https://laghousespricepred.streamlit.app/",
-      "kaggle_url": "https://www.kaggle.com/datasets/ibenjamean/real-estate-rental-market-dataset-2026",
-      "github_url": "https://github.com/meanima/lagos-properties-price-prediction"
+      "title": "Coming soon",
+      "problem": "Something new is currently in the works.",
+      "solution": "Be expectant!",
     }
   ]
   return render_template("projects.html", projects=projects)

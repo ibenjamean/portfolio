@@ -16,6 +16,7 @@
   --overlay-bg: #858585;
   --foot-header: #425751;
   --foot-hover: #ffcc23;
+  --c9: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -26,6 +27,7 @@
   --c6: #ffffff;
   --c7: var(--c1);   /* page background flips to your dark tone */
   /*--overlay-bg: #808080; /* dark, semi-transparent version of the old white overlay */
+  --c9: #000000;
 }
 
 html {
@@ -58,9 +60,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--c7);
+  background-color: var(--c9);
   color: var(--c4);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: 'DM Mono', 'sans-serif';
+  font-optical-sizing: auto;
   line-height: 1.6;
   width: 100%;
   max-width: 100%;
