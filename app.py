@@ -94,7 +94,7 @@ def about():
       }
     ],
     "title": "My Resume",
-    "resume_url": "notebooks/resume.html"
+    "resume_url": "notebooks/resume.pdf"
   }
 
   return render_template("about.html", about=about)
