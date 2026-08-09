@@ -6,10 +6,12 @@ if (!toggleBtn) {
 } else {
   // On page load: check if the user chose a theme before, and restore it
   const savedTheme = localStorage.getItem("theme");
-  // Default to dark unless the person explicitly chose light before
-  if (savedTheme !== "light") {
+  // Default to light unless the person explicitly chose dark before
+  if (savedTheme === "dark") {
     root.setAttribute("data-theme", "dark");
     toggleBtn.textContent = "☀️";
+  } else {
+    toggleBtn.textContent = "🌙";
   }
 
   toggleBtn.addEventListener("click", () => {

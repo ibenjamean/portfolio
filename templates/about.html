@@ -102,14 +102,12 @@
       <section id="about" class="section">
         <div class="container section-inner reveal">
           <p class="reveal-left">{{ about.hook }}</p>
-          <p class="philosophy reveal-left">
-            <strong style="font-size: 1.3rem;">Philosophy</strong><br><span style="font-style: italic; padding-top: 0.8rem; font-weight: bold;">{{ about.philosophy }}</span>
-          </p>
+          <p class="philosophy reveal-left" style="font-style: italic; font-weight: bold; margin: 2rem;">{{ about.philosophy }}</p>
           <p class="reveal-left">{{ about.story }}</p>
 
           <div class="toolkit-grid">
             {% for group in about.toolkit %}
-            <div class="toolkit-card glass-card reveal-right">
+            <div class="toolkit-card reveal-right">
               <h3>{{ group.category }}</h3>
               <ul>
                 {% for item in group.tools %}
@@ -120,13 +118,54 @@
             {% endfor %}
           </div>
 
-          <div class="toolkit-card glass-card reveal">
-            <h3>My Resume</h3>
-              {% if about.resume_url %}
-            <div class="notebook-embed glass-card reveal" style="margin-top: 1rem;">
-              <iframe src="{{ url_for('static', filename=about.resume_url) }}" loading="lazy" title="{{ about.title }} notebook" style="background-color: white; min-height: 80%;"></iframe>
+          
+
+          <div class="timeline-section reveal">
+            <p class="timeline-eyebrow">Education</p>
+            <h2 class="timeline-heading">Academic Background</h2>
+
+            <div class="timeline">
+              {% for entry in education %}
+              <div class="timeline-item reveal-right">
+                <div class="timeline-marker">
+                  <span class="timeline-icon">🎓</span>
+                </div>
+
+                <div class="timeline-card glass-card">
+                  <div class="timeline-top">
+                    <span class="timeline-years">{{ entry.years }}</span>
+                    <span class="timeline-badge timeline-badge-{{ entry.status|lower|replace(' ', '-') }}">{{ entry.status }}</span>
+                  </div>
+                  <h3 class="timeline-degree">{{ entry.degree }}</h3>
+                  <p class="timeline-institution">{{ entry.institution }}</p>
+                  <p class="timeline-description">{{ entry.description }}</p>
+                </div>
+              </div>
+              {% endfor %}
             </div>
-            {% endif %}
+
+            <h2 class="timeline-heading">Professional Development</h2>
+
+            <div class="timeline">
+              {% for entry in courses %}
+              <div class="timeline-item reveal-right">
+                <div class="timeline-marker">
+                  <span class="timeline-icon">🎓</span>
+                </div>
+
+                <div class="timeline-card glass-card">
+                  <div class="timeline-top">
+                    <span class="timeline-years">{{ entry.years }}</span>
+                    <span class="timeline-badge timeline-badge-{{ entry.status|lower|replace(' ', '-') }}">{{ entry.status }}</span>
+                  </div>
+                  <h3 class="timeline-degree">{{ entry.degree }}</h3>
+                  <p class="timeline-institution">{{ entry.institution }}</p>
+                  <p class="timeline-description">{{ entry.description }}</p>
+                  <p class="timeline-description">{{ entry.description2 }}</p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
           </div>
 
           <a class="cta-button resume reveal" href="resume">Download Resume </a>
@@ -134,13 +173,15 @@
         </div>
       </section>
 
+      <hr class="reveal-left">
+
       <section id="contact" class="section">
         <div class="container section-inner contact-section">
           <h2>Get in Touch</h2>
 
           <div class="contact-flex">
             <div class="contact-brief">
-              <div class=" contact-form glass-card reveal-right">
+              <div class=" contact-form reveal-right">
                 <h3>Have a project in mind?</h3>
                 <p class="contact-desc">
                   Click below to fill out a quick project brief. 
@@ -161,6 +202,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer reveal">

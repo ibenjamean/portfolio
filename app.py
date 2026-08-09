@@ -14,7 +14,7 @@ def home():
     "toolkit": [
       {
         "category": "Languages",
-        "tools": ["Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)", "SQL", "Javascript"]
+        "tools": ["Python", "SQL", "Javascript"]
       },
       {
         "category": "ML & Deployment",
@@ -26,6 +26,34 @@ def home():
       }
     ]
   }
+
+  education = [
+    {
+      "years": "2023 – Present",
+      "status": "In Progress",
+      "degree": "BSc — Economics",
+      "institution": "Lagos State University",
+      "description": "Final-year undergraduate, applying economics grounding to data analysis and machine learning work alongside coursework."
+    },
+  ]
+
+  courses = [
+    {
+      "years": "March 2026 – Present",
+      "status": "In Progress",
+      "degree": "Data Science & Machine Learning",
+      "institution": "Data Science Nigeria (DSN) - DeepTech_Ready Program",
+      "description": "Gaining advanced skills in data science and machine learning."
+    },
+    {
+      "years": "May 2025 – December 2025",
+      "status": "Completed",
+      "degree": "Data Analytics",
+      "institution": "Genesys Tech Hub - Data Analytics Training & Mentorship Program",
+      "description": "Gained foundational skills in Data Analytics.",
+      "description2": "Mentored New Aspiring Data Analysts in the program."
+    },
+  ]
 
   projects = [
     {
@@ -68,7 +96,7 @@ def home():
   ]
 
 
-  return render_template("index.html", about=about, projects=projects, skills=skills, certifications=certifications, reviews=reviews)
+  return render_template("index.html", about=about, education=education, projects=projects, skills=skills, certifications=certifications, reviews=reviews, courses=courses)
 
 
 
@@ -82,7 +110,7 @@ def about():
     "toolkit": [
       {
         "category": "Languages",
-        "tools": ["Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)", "SQL", "Javascript"]
+        "tools": ["Python", "SQL", "Javascript"]
       },
       {
         "category": "ML & Deployment",
@@ -97,7 +125,42 @@ def about():
     "resume_url": "notebooks/resume.html"
   }
 
-  return render_template("about.html", about=about)
+  education = [
+    {
+      "years": "2023 – Present",
+      "status": "In Progress",
+      "degree": "BSc — Economics",
+      "institution": "Lagos State University",
+      "description": "Final-year undergraduate, applying economics grounding to data analysis and machine learning work alongside coursework."
+    },
+    {
+      "years": "2008 – 2014",
+      "status": "Completed",
+      "degree": "Secondary Education",
+      "institution": "Brainfield College",
+      "description": "Foundational education prior to university."
+    },
+  ]
+
+  courses = [
+    {
+      "years": "March 2026 – Present",
+      "status": "In Progress",
+      "degree": "Data Science & Machine Learning",
+      "institution": "Data Science Nigeria (DSN) - DeepTech_Ready Program",
+      "description": "Gaining advanced skills in data science and machine learning."
+    },
+    {
+      "years": "May 2025 – December 2025",
+      "status": "Completed",
+      "degree": "Data Analytics",
+      "institution": "Genesys Tech Hub - Data Analytics Training & Mentorship Program",
+      "description": "Gained foundational skills in Data Analytics.",
+      "description2": "Mentored New Aspiring Data Analysts in the program."
+    },
+  ]
+
+  return render_template("about.html", about=about, education=education, courses=courses)
 
 
 

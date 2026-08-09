@@ -31,7 +31,7 @@
 }
 
 html {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   width: 100%;
   max-width: 100%;
 }
@@ -68,7 +68,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   /* overflow-y: auto; */
-  overscroll-behavior-x: none;
+  /* overscroll-behavior-x: none; */
 }
 
 main {
@@ -356,7 +356,7 @@ a {
 
 .hero-inner {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   /* width: 80%; */
   margin: 2rem auto;
@@ -374,7 +374,7 @@ a {
 
 .hero-image {
   width:40%;
-  padding: 12px;
+  padding: 8px;
   border-radius: 28px;
   object-fit:cover;
   border: 2px solid var(--c8);
@@ -578,17 +578,16 @@ p.hero-description.glass-card.reveal-right.is-visible {
 }
 
 .toolkit-grid {
-  margin: 1.5rem auto 3rem;
+  margin: 3rem auto 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 20px;
+  align-items: center;
+  gap: 3rem;
 }
 
 .toolkit-card {
-  min-width: 285px;
-  padding: 20px;
-  transition: transform .6s;
+  width: fit-content;
 }
 
 .toolkit-card h3 {
@@ -598,13 +597,153 @@ p.hero-description.glass-card.reveal-right.is-visible {
 }
 
 .toolkit-card ul {
-  list-style: square;
-  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 12px;
+  margin-top: .6rem;
   padding-left: 18px;
   color: var(--c4);
 }
 
-.resume, .email {
+.toolkit-card ul li {
+  border: 1.3px solid var(--c8);
+  clip-path: polygon(
+    0% 0%,    /* top point — where the left diagonal meets the top */
+    80% 0%,   /* top-right corner */
+    100% 30%,  /* right side breaks here */
+    100% 100%,  /* bottom point — where the right diagonal meets the bottom */
+    20% 100%,   /* bottom-left corner */
+    0% 70%     /* left side breaks here */
+  );
+  padding: 4px 20px;
+  border-radius: 6px;
+  font-weight: bolder;
+  transition: transform .6s;
+}
+
+.timeline-section {
+  width: 80%;
+  margin: 3.5rem auto;
+}
+
+.timeline-eyebrow {
+  color: var(--c2);
+  font-family: monospace;
+  letter-spacing: 1px;
+  margin: 0 0 8px;
+}
+
+.timeline-heading {
+  font-size: 2.2rem;
+  margin: 0 0 40px;
+  color: var(--c4);
+  text-align: left;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 60px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(128, 128, 128, 0.25);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -55px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--c7);
+  border: 2px solid var(--c2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  z-index: 1;
+}
+
+.timeline-card {
+  padding: 24px 28px;
+}
+
+.timeline-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.timeline-years {
+  font-family: monospace;
+  color: var(--c2);
+  opacity: 0.8;
+}
+
+.timeline-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.timeline-badge-in-progress {
+  color: #d4a12a;
+  border-color: #d4a12a;
+  background: rgba(212, 161, 42, 0.1);
+}
+
+.timeline-badge-completed {
+  color: #2ecc71;
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.timeline-degree {
+  margin: 0 0 6px;
+  color: var(--c4);
+  font-size: 1rem;
+}
+
+.timeline-institution {
+  margin: 0 0 14px;
+  color: var(--c2);
+  font-weight: 600;
+}
+
+.timeline-description {
+  margin: 0;
+  color: var(--c4);
+  opacity: 0.85;
+}
+
+.resume, .email, .resume-icon {
+  border: 1.3px solid var(--c8);
+  clip-path: polygon(
+    0% 0%,    /* top point — where the left diagonal meets the top */
+    80% 0%,   /* top-right corner */
+    100% 30%,  /* right side breaks here */
+    100% 100%,  /* bottom point — where the right diagonal meets the bottom */
+    20% 100%,   /* bottom-left corner */
+    0% 70%     /* left side breaks here */
+  );
+  padding: 4px 20px;
   display: block;
   width:fit-content;
   margin: 0 auto 1rem;
@@ -630,6 +769,8 @@ p.hero-description.glass-card.reveal-right.is-visible {
 }
 
 .project-card {
+  width: 90%;
+  margin: auto;
   display: flex;
   gap: 1.3rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -640,17 +781,10 @@ p.hero-description.glass-card.reveal-right.is-visible {
 }
 
 .project-card h4 {
-  width: 20%;
+  width: fit-content;
   height:fit-content;
   font-weight: bolder;
   text-align: center;
-  align-self: flex-start;
-  padding: 6px 10px;
-  border-radius: .8rem;
-  border: .6px solid var(--c4);
-  background: rgba(255, 255, 255, 0.062);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(12px); /* Safari needs the vendor prefix */
 }
 
 .project-card p {
@@ -763,7 +897,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   transition: transform .6s;
 }
 
-.hero-image:hover, .hero-desc-row:hover, .toolkit-card:hover, .cert-card:hover, .project-card:hover, .contact-form:hover {
+.hero-image:hover, .hero-desc-row:hover, .toolkit-card ul li:hover, .cert-card:hover, .project-card:hover, .contact-form:hover {
   transform: translateY(-10px);
 } 
 
@@ -1067,7 +1201,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
   .hero-inner {
     flex-direction: column;
-    gap: 2rem;
+    /* gap: 2rem; */
   }
 
   .hero-image {
@@ -1119,8 +1253,13 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
 @media (max-width: 720px) {
 
-  .project-card {
+  .toolkit-grid {
     flex-direction: column;
+    margin: 1rem auto;
+  }
+
+  .toolkit-card {
+    min-width: 285px;
   }
 
   .project-card h4 {
@@ -1184,8 +1323,8 @@ p.hero-description.glass-card.reveal-right.is-visible {
   }
 
   .hero-image {
-    width: 85%;
-    padding: 10px;
+    width: 65%;
+    padding: 4px;
   }
 
   .hero-grid {
@@ -1238,17 +1377,12 @@ p.hero-description.glass-card.reveal-right.is-visible {
   }
 
   .section-inner {
-    margin: 1.5rem 0 1rem;
+    /* margin: 1.5rem 0 1rem; */
     gap: .7rem;
   }
 
   .hero, .section-inner{
     padding: 0 10px 0 50px;
-  }
-
-  .toolkit-grid {
-    margin: 1rem auto;
-    gap: 8px;
   }
 
   .project-block {
@@ -1257,8 +1391,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   }
 
   .project-card {
-    gap: 0.8rem;
-    padding: 6px;
+    padding: 16px;
   }
 
   .skills-list {
@@ -1323,7 +1456,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   }
 
   .hero-inner {
-    gap: 1rem;
+    gap: .3rem;
     margin: 0 auto;
   }
 

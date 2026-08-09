@@ -61,15 +61,43 @@
         <div class="resume-card glass-card">
           <p class="resume-head">Download my Resume!</p>
 
-          <a class="sidebar-nav-item cta-button" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download>
-            <span class="icon" data-tooltip="C.V"><i class="fa-solid fa-download"></i></span>
-            <span class="label">Resume</span>
-          </a>
+          <a class="cta-button resume reveal" style="border: 2px solid #ffcc23; padding-inline: 20px;" href="{{ url_for('static', filename='files/kadiri_resume.pdf') }}" download><i class="fa-solid fa-download"></i></a>
 
           <p class="resume-text">Download complete?<br>Thank you for visiting.</p>
           <a class="cta-button" href="{{ url_for('home') }}">← Back to Home</a>
         </div>
       </div>
+
+      <hr class="reveal-left">
+
+      <section id="contact" class="section">
+        <div class="container section-inner contact-section">
+          <h2>Get in Touch</h2>
+
+          <div class="contact-flex">
+            <div class="contact-brief">
+              <div class=" contact-form reveal-right">
+                <h3>Have a project in mind?</h3>
+                <p class="contact-desc">
+                  Click below to fill out a quick project brief. 
+                  <br>All data is structured for rapid assessment!
+                </p>
+                
+                <a href="https://forms.gle/aVCC758moUfJw7Tw9" target="_blank" class="brief-btn glass-card" style="text-align: center; display: block; margin: 2rem auto;">
+                  Open Project Brief Form
+                </a>
+              </div>
+
+              <div class="direct-mail">
+                <p class="contact-alt">Prefer to just explain things in your own words?<br>Skip the form entirely.</p>
+                <a class="email cta-button" href="mailto:hello.kadiri@outlook.com">Email Me</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </main>
 
     <footer class="footer reveal">
