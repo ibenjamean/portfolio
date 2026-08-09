@@ -24,7 +24,7 @@ function createPageBackground() {
       radius: 15 + Math.random() * 35,
       vx: (Math.random() - 0.5) * 4,
       vy: (Math.random() - 0.5) * 4,
-      opacity: 0.15 * (0.5 + Math.random() * 0.5)
+      opacity: 0.06 * (0.5 + Math.random() * 0.5)
     };
   }
 
