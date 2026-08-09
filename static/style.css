@@ -578,12 +578,12 @@ p.hero-description.glass-card.reveal-right.is-visible {
 }
 
 .toolkit-grid {
-  margin: 3rem auto 3rem;
+  margin: 4rem auto 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
 .toolkit-card {
@@ -790,6 +790,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
 .project-card p {
   width: 100%;
   text-align: left;
+  padding: 26px;
 }
 
 .notebook-embed {
@@ -1255,7 +1256,6 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
   .toolkit-grid {
     flex-direction: column;
-    margin: 1rem auto;
   }
 
   .toolkit-card {
@@ -1263,8 +1263,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   }
 
   .timeline-section {
-    width: 100%;
-    margin: 3.5rem auto;
+    width: 90%;
   }
 
   .project-card h4 {

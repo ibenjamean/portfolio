@@ -102,10 +102,11 @@
       <section id="about" class="section">
         <div class="container section-inner reveal">
           <p class="reveal-left">{{ about.hook }}</p>
-          <p class="philosophy reveal-left" style="font-style: italic; font-weight: bold; margin: 2rem;">{{ about.philosophy }}</p>
+          <p class="philosophy reveal-left" style="font-style: italic; font-weight: bold; margin: 2rem auto;">{{ about.philosophy }}</p>
           <p class="reveal-left">{{ about.story }}</p>
 
           <div class="toolkit-grid">
+            <h2 class="toolkit-heading reveal-left">My Toolkit</h2>
             {% for group in about.toolkit %}
             <div class="toolkit-card reveal-right">
               <h3>{{ group.category }}</h3>
@@ -168,7 +169,7 @@
             </div>
           </div>
 
-          <a class="cta-button resume reveal" href="resume">Download Resume </a>
+          <a class="cta-button resume reveal" style="border: 2px solid #ffcc23;" href="resume">Download Resume </a>
 
         </div>
       </section>
@@ -195,7 +196,7 @@
 
               <div class="direct-mail">
                 <p class="contact-alt">Prefer to just explain things in your own words?<br>Skip the form entirely.</p>
-                <a class="email cta-button" href="mailto:hello.kadiri@outlook.com">Email Me</a>
+                <a class="email cta-button" style="border: 2px solid #ffcc23;" href="mailto:hello.kadiri@outlook.com">Email Me</a>
               </div>
 
             </div>
