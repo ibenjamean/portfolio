@@ -8,9 +8,9 @@ app = Flask(__name__)
 @app.route("/")
 def home():
   about = {
-    "hook": "I'm a Data Engineer, a Data Analyst, and a Machine Learning Developer who transforms raw, chaotic real-world web data into production-ready models and interactive web applications.",
+    "hook": "I'm a Data Analyst, a Data Engineer, and a Machine Learning Developer who transforms raw, chaotic real-world web data into production-ready models and interactive web applications.",
     "philosophy": "Driven by curiosity, precision, and solving messy data problems that others may skip.",
-    "story": "Instead of just downloading clean datasets from data sites, I write custom web scrapers to scrape data from sites, source live real-world data from reliable platforms and gorvenmental programs, gather primary data from carrying out actual survey, then fight through these messy data, engineer custom feature hierarchies, and deploy full-stack apps end to end.",
+    "story": "I write custom web scrapers to scrape data from sites, source live data from reliable platforms & governmental programs, gather primary data by carrying out surveys, fight through these messy data, engineer custom feature hierarchies, and deploy full-stack apps end to end.",
     "toolkit": [
       {
         "category": "Languages",
@@ -104,9 +104,9 @@ def home():
 def about():
 
   about = {
-    "hook": "I'm a Data Engineer, a Data Analyst, and a Machine Learning Developer who transforms raw, chaotic real-world web data into production-ready models and interactive web applications.",
+    "hook": "I'm a Data Analyst, a Data Engineer, and a Machine Learning Developer who transforms raw, chaotic real-world web data into production-ready models and interactive web applications.",
     "philosophy": "Driven by curiosity, precision, and solving messy data problems others may skip.",
-    "story": "Instead of just downloading clean datasets from data sites, I write custom web scrapers to scrape data from sites, source live real-world data from reliable platforms and gorvenmental programs, gather primary data from carrying out actual survey, then fight through these messy data, engineer custom feature hierarchies, and deploy full-stack apps end to end.",
+    "story": "I write custom web scrapers to scrape data from sites, source live data from reliable platforms & governmental programs, gather primary data by carrying out surveys, fight through these messy data, engineer custom feature hierarchies, and deploy full-stack apps end to end.",
     "toolkit": [
       {
         "category": "Languages",
@@ -151,12 +151,19 @@ def about():
       "description": "Gaining advanced skills in data science and machine learning."
     },
     {
-      "years": "May 2025 – December 2025",
+      "years": "June 2025 – December 2025",
+      "status": "Completed",
+      "degree": "Data Analytics & Mentorship",
+      "institution": "Genesys Tech Hub",
+      "description": "Developed Analytic Skills to solve real-world Business problems.",
+      "description2": "Mentored New Aspiring Data Analysts in the program."
+    },
+    {
+      "years": "May 2025 – August 2025",
       "status": "Completed",
       "degree": "Data Analytics",
-      "institution": "Genesys Tech Hub - Data Analytics Training & Mentorship Program",
-      "description": "Gained foundational skills in Data Analytics.",
-      "description2": "Mentored New Aspiring Data Analysts in the program."
+      "institution": "Selfless Hearts Foundation",
+      "description": "Gained foundational skills in Data Analytics."
     },
   ]
 
