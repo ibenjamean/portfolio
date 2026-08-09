@@ -67,7 +67,7 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   /* overscroll-behavior-x: none; */
 }
 
@@ -356,7 +356,7 @@ a {
 
 .hero-inner {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   /* width: 80%; */
   margin: 2rem auto;
@@ -374,7 +374,7 @@ a {
 
 .hero-image {
   width:40%;
-  padding: 8px;
+  padding: 12px;
   border-radius: 28px;
   object-fit:cover;
   border: 2px solid var(--c8);
@@ -1201,7 +1201,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
   .hero-inner {
     flex-direction: column;
-    /* gap: 2rem; */
+    gap: 2rem;
   }
 
   .hero-image {
@@ -1324,7 +1324,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
   .hero-image {
     width: 65%;
-    padding: 4px;
+    padding: 8px;
   }
 
   .hero-grid {
@@ -1456,7 +1456,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   }
 
   .hero-inner {
-    gap: .3rem;
+    gap: 1rem;
     margin: 0 auto;
   }
 
