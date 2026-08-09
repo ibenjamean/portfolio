@@ -624,7 +624,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
 }
 
 .timeline-section {
-  width: 80%;
+  width: 60%;
   margin: 3.5rem auto;
 }
 
@@ -1260,6 +1260,11 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
   .toolkit-card {
     min-width: 285px;
+  }
+
+  .timeline-section {
+    width: 100%;
+    margin: 3.5rem auto;
   }
 
   .project-card h4 {
