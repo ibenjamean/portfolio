@@ -1224,8 +1224,8 @@ p.hero-description.glass-card.reveal-right.is-visible {
 @media (max-width: 950px) {
 
   .hero-brand {
-    top: 1%;
-    right: 3%;
+    top: 3%;
+    right: 4%;
   }
 
   .hero-inner {
