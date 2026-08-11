@@ -20,7 +20,7 @@
         <div class="navbar">
           <div class="logo">
             <a class="sidebar-logo" href="{{ url_for('home') }}" data-tooltip="Home">
-              <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+              <img class="brand-logo" src="{{ url_for('static', filename='images/icon.svg') }}" alt="logo">
             </a>
 
             <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Expand navigation" data-tooltip="Expand">
@@ -63,7 +63,10 @@
     <main>
       <section id="home" class="hero">
         <canvas id="bg-canvas"></canvas>
-        <a href="{{ url_for('home') }}" class="hero-brand">Minima</a>
+            <a class="hero-brand" href="{{ url_for('home') }}">
+              <img src="{{ url_for('static', filename='images/icon.svg') }}" style="width: 15px; height: 15px;" alt="logo">
+              <span style="font-size: .8rem; font-weight: 900; padding-left: .6px;">INIMA</span>
+            </a>
         <div class="container hero-inner" style="justify-content: space-around;">
 
           <img class="hero-image reveal-left" src="{{ url_for('static', filename='images/hero.png') }}" alt="Benjamin Kadiri">

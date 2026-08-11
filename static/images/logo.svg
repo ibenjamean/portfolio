@@ -1,0 +1,28 @@
+<svg viewBox="0 242.7835051546392 600 239.69072164948454" xmlns="http://www.w3.org/2000/svg" style="max-height: 500px" width="600" height="239.69072164948454">
+  <defs>
+    <style>
+      .brand-text {
+        font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 116px;
+        letter-spacing: 6px;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(8, 250)">
+    
+    <g>
+      <rect fill="#00D4FF" rx="4" height="160" width="42" y="64" x="0"/>
+      <rect fill="#00D4FF" rx="4" height="224" width="42" y="0" x="57"/>
+      <rect fill="#00D4FF" rx="4" height="179" width="42" y="45" x="114"/>
+    </g>
+
+    
+    <g transform="translate(188, 224)">
+      <text opacity="0.75" fill="#3FA9F5" y="0" x="2" class="brand-text">INIMA</text>
+      <text opacity="0.6" fill="#E8862A" y="0" x="-2" class="brand-text">INIMA</text>
+      <text fill="#FFFFFF" y="0" x="0" class="brand-text">INIMA</text>
+    </g>
+  </g>
+</svg>
