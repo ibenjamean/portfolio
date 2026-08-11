@@ -64,6 +64,7 @@
     <main>
       <section id="home" class="hero">
         <canvas id="bg-canvas"></canvas>
+        <a href="{{ url_for('home') }}" class="hero-brand">Minima</a>
         <div class="container hero-inner" style="justify-content: space-around;">
 
           <img class="hero-image reveal-left" src="{{ url_for('static', filename='images/hero.png') }}" alt="Benjamin Kadiri">
@@ -197,7 +198,7 @@
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('projects') }}">Projects</a></li>
-            <li><a href="#review">Reviews</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>

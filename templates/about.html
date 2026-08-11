@@ -21,7 +21,6 @@
           <div class="logo">
             <a class="sidebar-logo" href="{{ url_for('home') }}" data-tooltip="Home">
               <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
-              <span class="label">Minima</span>
             </a>
 
             <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Expand navigation" data-tooltip="Expand">
@@ -64,6 +63,7 @@
     <main>
       <section id="home" class="hero">
         <canvas id="bg-canvas"></canvas>
+        <a href="{{ url_for('home') }}" class="hero-brand">Minima</a>
         <div class="container hero-inner" style="justify-content: space-around;">
 
           <img class="hero-image reveal-left" src="{{ url_for('static', filename='images/hero.png') }}" alt="Benjamin Kadiri">
@@ -122,8 +122,8 @@
           
 
           <div class="timeline-section reveal">
-            <p class="timeline-eyebrow">Education</p>
-            <h2 class="timeline-heading">Academic Background</h2>
+            <p class="timeline-eyebrow" style="font-size: 1rem; margin-bottom: 1.5rem;">Education</p>
+            <h2 class="timeline-heading" style="text-align: left;">Academic Background</h2>
 
             <div class="timeline">
               {% for entry in education %}
@@ -145,7 +145,7 @@
               {% endfor %}
             </div>
 
-            <h2 class="timeline-heading">Professional Development</h2>
+            <h2 class="timeline-heading" style="text-align: left;">Professional Development</h2>
 
             <div class="timeline">
               {% for entry in courses %}
@@ -237,7 +237,7 @@
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('projects') }}">Projects</a></li>
-            <li><a href="#review">Reviews</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>

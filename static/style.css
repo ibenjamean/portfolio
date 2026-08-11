@@ -249,7 +249,7 @@ a {
 }
 
 .sidebar.expanded .sidebar-nav {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -267,17 +267,19 @@ a {
 
 .sidebar-nav a .icon {
   font-size: 0.9rem;
-  min-width: 40px;
+  /* min-width: 40px; */
   text-align: center;
   color: var(--c4);
 }
 
-.brand-logo, .sidebar a .icon, .theme-toggle, .sidebar-nav-item .icon {
+/* .brand-logo,  */
+.sidebar a .icon, .theme-toggle, .sidebar-nav-item .icon {
   margin-left: 12px;
 }
 
-.sidebar.expanded .brand-logo, .sidebar.expanded .sidebar-nav a .icon, .sidebar.expanded .theme-nav .theme-toggle, .sidebar.expanded .sidebar-nav-item .icon {
-  margin-left: -12px;
+/* .sidebar.expanded .brand-logo,  */
+.sidebar.expanded .sidebar-nav a .icon, .sidebar.expanded .theme-nav .theme-toggle, .sidebar.expanded .sidebar-nav-item .icon {
+  margin-left: 0;
 }
 
 .sidebar-nav a .label, .sidebar-logo .label, .theme-nav .label, .sidebar-nav-item .label {
@@ -340,27 +342,50 @@ a {
   transform: scale(1.15);
 }
 
-/* .hero, .section-inner {
-  width: 100%;
-  padding: 3rem 2rem;
-} */
-
 .hero {
   min-height: 100vh;
-  /* padding: 4rem 2rem; */
   display: grid;
   align-items: center;
   position: relative;
   overflow: hidden;
 }
 
+.hero-brand {
+  position: fixed;
+  z-index: 2;
+  top: 2%;
+  right: 2%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(12px); /* Safari needs the vendor prefix */
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  /* display: flex;
+  justify-self: flex-end;
+  max-width: fit-content; */
+  font-weight: 900;
+  font-family: monospace;
+  letter-spacing: 1px;
+  border: 1.3px solid var(--overlay-bg);
+  border-radius: 6px;
+  clip-path: polygon(
+    0% 0%,    /* top point — where the left diagonal meets the top */
+    80% 0%,   /* top-right corner */
+    100% 30%,  /* right side breaks here */
+    100% 100%,  /* bottom point — where the right diagonal meets the bottom */
+    20% 100%,   /* bottom-left corner */
+    0% 70%     /* left side breaks here */
+  );
+  padding: 0 12px;
+  color: var(--c6);
+}
+
 .hero-inner {
   display: flex;
-  gap: 2rem;
   align-items: center;
-  /* width: 80%; */
-  margin: 2rem auto;
-  justify-content: space-between;
+  width: 100%;
+  margin: 1rem 0;
+  justify-content: space-evenly;
 }
 
 .hero-grid {
@@ -457,7 +482,7 @@ a {
 .line {
   font-weight: bolder;
   font-size: 1.5rem;
-  color: var(--c4);
+  color: var(--c6);
 }
 
 .hero-desc-row{
@@ -625,21 +650,19 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
 .timeline-section {
   width: 60%;
-  margin: 3.5rem auto;
+  margin: 2rem auto;
 }
 
 .timeline-eyebrow {
   color: var(--c2);
   font-family: monospace;
   letter-spacing: 1px;
-  margin: 0 0 8px;
 }
 
 .timeline-heading {
   font-size: 2.2rem;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
   color: var(--c4);
-  text-align: left;
 }
 
 .timeline {
@@ -898,7 +921,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
   transition: transform .6s;
 }
 
-.hero-image:hover, .hero-desc-row:hover, .toolkit-card ul li:hover, .cert-card:hover, .project-card:hover, .contact-form:hover {
+.hero-image:hover, .hero-desc-row:hover, .toolkit-card ul li:hover, .cert-card:hover, .project-card:hover, .contact-form:hover, .timeline-card:hover {
   transform: translateY(-10px);
 } 
 
@@ -1200,9 +1223,14 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
 @media (max-width: 950px) {
 
+  .hero-brand {
+    top: 1%;
+    right: 3%;
+  }
+
   .hero-inner {
     flex-direction: column;
-    gap: 2rem;
+    margin-top: 3.5rem;
   }
 
   .hero-image {
@@ -1322,10 +1350,6 @@ p.hero-description.glass-card.reveal-right.is-visible {
     width: 110px;
   }
 
-  .header-inner {
-    padding: 12px 0;
-  }
-
   .hero-image {
     width: 65%;
     padding: 8px;
@@ -1440,10 +1464,6 @@ p.hero-description.glass-card.reveal-right.is-visible {
 
 @media (max-width: 400px) {
 
-  .header-inner {
-    min-height: 32px;
-  }
-
   .brand-logo {
     width:30px; 
     height:30px;
@@ -1459,10 +1479,10 @@ p.hero-description.glass-card.reveal-right.is-visible {
     height: 2px;
   }
 
-  .hero-inner {
+  /* .hero-inner {
     gap: 1rem;
     margin: 0 auto;
-  }
+  } */
 
   .hero-grid {
     gap: 0.8rem;
