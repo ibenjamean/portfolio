@@ -358,11 +358,10 @@ a {
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(12px); /* Safari needs the vendor prefix */
-  /* border: 2px solid rgba(255, 255, 255, 0.25); */
   display: flex;
   align-items: last baseline;
   width: fit-content;
-  border: 1.3px solid var(--overlay-bg);
+  border: 2px solid var(--overlay-bg);
   border-radius: 6px;
   clip-path: polygon(
     0% 0%,    /* top point — where the left diagonal meets the top */
@@ -373,7 +372,11 @@ a {
     0% 70%     /* left side breaks here */
   );
   padding: 4px 9px 0;
-  color: var(--c8);
+  /* color: var(--c8); */
+}
+
+.hero-brand span {
+  color: var(--c6);
 }
 
 .hero-inner {
@@ -604,11 +607,12 @@ p.hero-description.glass-card.reveal-right.is-visible {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 3.5rem;
+  gap: 1.5rem;
 }
 
 .toolkit-card {
   width: fit-content;
+  margin-bottom: 1.5rem;
 }
 
 .toolkit-card h3 {
@@ -831,6 +835,10 @@ p.hero-description.glass-card.reveal-right.is-visible {
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.project-links a {
+  border: 1.3px solid var(--c8);
 }
 
 .project-links .cta-button {
@@ -1382,7 +1390,7 @@ p.hero-description.glass-card.reveal-right.is-visible {
     border-radius: 9px;
   }
 
-  .cta-button, .project-links .cta-button {
+  .cta-button, .project-links a .cta-button {
     padding: 4px 8px;
     border: 1px solid var(--c5);
     border-radius: 9px;
