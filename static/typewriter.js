@@ -6,9 +6,9 @@ const line3 = document.getElementById("line3-text");
 const greeting = "Hello..! 👋🏽";
 const name = "I'm Benjamin Kadiri...";
 const titles = [
+  "A Certified Data Analyst.",
   "A Data Scientist & ML Engineer.",
   "A Certified Economist.",
-  "A Certified Data Analyst.",
   "A Security Professional."
 ];
 
